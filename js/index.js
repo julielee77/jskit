@@ -1,3 +1,8 @@
+/*
+** @file index.js for home
+** @author julielee77
+*/
+
 var vm=new Vue({
 	el:'body',
 	data:{
