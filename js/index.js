@@ -1,4 +1,5 @@
 var vm=new Vue({
+	el:'body',
 	data:{
 		frameworks:[{
 			name:'vue',
