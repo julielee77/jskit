@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<title>Utils Demo</title>
+	<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/element-ui/1.0.7/theme-default/index.css">
+</head>
+<body>
+	<header>
+		<h1>Utils Demo</h1>
+	</header>
+	
+	<main>
+		<el-row :gutter="20">
+			<el-col :span="4">
+				<el-card>
+					<div slot="header">注：除常用总css/js外，本demo系统使用技术／框架——</div>
+					<el-tag type="success" v-for="item in frameworks"><a href="item.github">{{item.name}}</a></el-tag>
+				</el-card>
+
+				<el-card>
+					<div slot="header">Demo List</div>
+					1.
+					<br>
+					2.
+				</el-card>
+			</el-col>
+			<el-col :span="20">
+				<el-card>
+					<div slot="header">
+						{{absolute模拟fixed定位}}
+					</div>
+					<router-view></router-view>
+				</el-card>
+			</el-col>
+		</el-row>
+	</main>
+	
+	<script type="text/javascript" src="//cdn.bootcss.com/vue/2.1.6/vue.min.js"></script>
+	<script type="text/javascript" src="//cdn.bootcss.com/vue-resource/1.0.3/vue-resource.min.js"></script>
+	<script type="text/javascript" src="//cdn.bootcss.com/vue-router/2.1.1/vue-router.min.js"></script>
+	<script type="text/javascript" src="//cdn.bootcss.com/element-ui/1.0.7/index.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
