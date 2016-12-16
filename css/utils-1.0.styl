@@ -1,0 +1,106 @@
+/*
+** utils-1.0.styl  --- Created by JulieLee77. 
+*/
+/*clear float FROM bootstrap*/
+.clearfix:after
+    content ""
+    display table
+    clear both
+/*last implementation*/ 
+.clearfix2
+  *zoom 1
+  &:before,&:after
+    content ""
+    display table
+    line-height 0
+  &:after
+    clear both   
+
+/*autoprefixer*/
+vendor(prop, args...)
+  -webkit-{prop} args
+  -moz-{prop} args
+  -ms-{prop} args
+  /*-o-{prop} args*/
+  {prop} args
+
+/*border-radius IMPATIBLE WITH some mobile*/
+border-radius(args)
+  if length(arguments)==1  //solve some mobile not supported border-radius:10px
+    border-top-left-radius args
+    border-top-right-radius args
+    border-bottom-right args
+    border-bottom-left args
+  else
+    border-radius args
+
+/*triangle*/
+caret(color,width)
+  border-style solid
+  border-color color
+  border-width width
+  height 0
+  width 0
+/*
+.caret
+  caret (red transparent transparent transparent) (100px 60px 0 60px)
+*/
+
+/*one line ellipsis*/
+p
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+
+/*lines ellipsis--仅支持webkit内核浏览器*/
+text-ellipsis(row)
+  overflow hidden
+  text-overflow ellipsis
+  display -webkit-box     
+  display -webkit-flex
+  display flex         
+  -webkit-line-clamp row
+  -webkit-box-orient vertical
+
+/*url not break word*/
+.no-break
+  word-wrap break-word
+  word-break break-all
+  
+/*align middle*/
+/*1*/
+.align-center
+  text-align center
+  &:after
+    content ''
+    width 0
+    height 100%
+    visibility hidden
+  >div, &:after
+    display inline-block
+    vertical-align middle 
+/*2*/
+.align-center2
+  display -webkit-box     /* OLD - iOS 6-, Safari 3.1-6 */
+  display -moz-box        /* OLD - Firefox 19- (buggy but mostly works) */
+  display -ms-flexbox     /* TWEENER - IE 10 */
+  display -webkit-flex    /* NEW - Chrome */
+  display flex            /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  vendor align-items center
+  // justify-content center  --horizontal align 
+
+//footer fixed when less content
+body
+  display -webkit-box     /* OLD - iOS 6-, Safari 3.1-6 */
+  display -moz-box        /* OLD - Firefox 19- (buggy but mostly works) */
+  display -ms-flexbox     /* TWEENER - IE 10 */
+  display -webkit-flex    /* NEW - Chrome */
+  display flex            /* NEW, Spec - Opera 12.1, Firefox 20+*/
+  min-height 100vh
+  vendor flex-direction column
+main
+  vendor flex 1
+      
+   
+    
+  
