@@ -5,40 +5,44 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
 	<title>Utils Demo</title>
 	<link rel="stylesheet" type="text/css" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<header>
 		<h1>Utils Demo</h1>
 	</header>
 	
-	<main>
+	<main id="app">
 		<el-row :gutter="20">
-			<el-col :span="4">
-				<el-card>
-					<div slot="header">注：除常用总css/js外，本demo系统使用技术／框架——</div>
-					<el-tag type="success" v-for="item in frameworks"><a href="item.github">{{item.name}}</a></el-tag>
+			<el-col :span="8">
+				<el-card class="box-card">
+					<div slot="header"><el-badge :value="demo.length">Demo List</el-badge></div>
+					<ul>
+						<li v-for="(item,index) in demo" @click="currentIndex=index"><a href="javascript:void(0)">{{item.name}}</a></li>
+					</ul>
 				</el-card>
 
-				<el-card>
-					<div slot="header">Demo List</div>
-					1.
-					<br>
-					2.
+				<el-card class="box-card">
+					<p>注：除常用总css/js外，本demo系统使用技术／框架——</p>
+					<el-tag type="success" v-for="item in frameworks" class="framework-tag"><a href="item.github">{{item.name}}</a></el-tag>
 				</el-card>
 			</el-col>
-			<el-col :span="20">
-				<el-card>
+			<el-col :span="16">
+				<el-card class="box-card">
 					<div slot="header">
-						{{absolute模拟fixed定位}}
+						<h2 class="card-title">absolute模拟fixed定位</h2>
 					</div>
-
+					<iframe :src="demo[currentIndex].path" class="demo-box"></iframe>
 				</el-card>
+
 			</el-col>
 		</el-row>
 	</main>
 	
 
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript" src="https://unpkg.com/vue-resource@1.0.3/dist/vue-resource.min.js"></script>
 <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

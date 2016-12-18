@@ -1,6 +1,12 @@
+[{
+	"name":"position:fixed问题解决",
+	"path":"https://julielee77.github.io/demo/0001.html",
+	"tag":"fixed,移动端",
+	"introPath":""
+},
 {
-	"name":"absolute模拟fixed定位",
-	"path":"",
+	"name":"移动端touch实现tab切换",
+	"path":"https://julielee77.github.io/demo/0004.html",
 	"tag":"",
 	"introPath":""
-}
+}]
