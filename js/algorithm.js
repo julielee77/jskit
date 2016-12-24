@@ -1,11 +1,11 @@
-/*algorithm.js --createdBy Julie
- **usually used algorithm implemention
+/* @algorithm.js --createdBy Julie
+ * usually used algorithm implemention
  */
-/*
- **sorting algorithm
- **1. bubble sorting
- **2. insertion sorting
- **3. random sorting
+/**
+ * sorting algorithm
+ * 1. bubble sorting
+ * 2. insertion sorting
+ * 3. random sorting
  */
 //bubble sorting
 Array.prototype.bubbleSort = function() {

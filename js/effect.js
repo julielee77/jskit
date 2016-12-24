@@ -1,4 +1,6 @@
-/*animation*/
+/**
+ * animation
+ */
 function getStyle(ele, attr) {
   if (ele.currentStyle) { //IE
     if (attr == 'opacity') {
@@ -9,9 +11,10 @@ function getStyle(ele, attr) {
     return getComputedStyle(ele, null)[attr];
   }
 }
-/*ele--- DOMElement
- **json -- 动画属性数据，如{"width":"300px"}
- **fn -- callback function
+/**
+ * @param ele--- DOMElement
+ * @param json -- 动画属性数据，如{"width":"300px"}
+ * @param fn -- callback function
  */
 function changeAttr(ele, json, fn) {
   clearInterval(ele.timer);
