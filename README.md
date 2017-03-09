@@ -6,4 +6,4 @@
 ##/js
 - algorithm.js -- 常用算法的js实现
 - utils.js -- js常用功能函数
-- effect.js -- 常用效果实现
+- effect.js -- 常用动画效果实现
