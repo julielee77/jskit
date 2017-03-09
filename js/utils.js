@@ -1,38 +1,42 @@
-/*判断数据类型*/
+/* identify data type */
 function identifyType(val) {
   if (!val) {
     return;
   }
   var type = typeof val;
-  //非object类型 string,boolean,number,undefined,function
+  //string,boolean,number,undefined,function
   if (type !== 'object') {
     return type;
   }
-  //object类型使用prototype判断，如[object Array]
+  //obejct type, such as [object Array]
   return Object.prototype.toString.call(val).slice(8, -1);
 }
-/*验证身份证最后一位 TODO ??*/
-function identifiyCard(id) {
+
+/* validate identification card number */
+//  TODO ??
+function validateCard(id) {
   id += '';
   var arr = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2],
     sum = 0;
   for (var i = 0; i < arr.length; i++) {
-    sum += (arr[i] * parseInt(id.charAt(i))); //各个位置乘积的和
+    sum += (arr[i] * parseInt(id.charAt(i))); //produt for the matrix
   }
-  var remainder = Math.abs(sum % 11 - 2); //和对11取余减2
+  var remainder = Math.abs(sum % 11 - 2); 
   var last = (remainder === 0 ? 'X' : remainder); //0--X
   return last == id.charAt(17).toUpperCase();
 }
-//原生js实现ajax  同源
+
+/* ajax completemented by native javascript  */  
+// Homologous
 var XMLHttp = function() {
   var xhr;
-  if (window.XMLHttPRequest) { //现代浏览器
+  if (window.XMLHttPRequest) { //
     xhr = new XMLHttPRequest();
   } else if (window.ActiveXObject) { //IE6-
     xhr = new ActiveXObject();
   }
-  if (xhr === undefined || xhr === null) { //其它不支持情况报错
-    throw new Error('创建AMLHttpRequest对象失败');
+  if (xhr === undefined || xhr === null) { 
+    throw new Error('creating XMLHttpRequest Object failed');
   } else {
     return xhr;
   }
@@ -40,28 +44,28 @@ var XMLHttp = function() {
 XMLHttp.prototype.send = function(url, method, async, data, fn) {
   var params = null;
   if (method.toUpperCase() === 'GET') {
-    //GET方法需处理传递参数
+    // parse parameters for GET method
     if (data !== undefined || data !== null) {
       url += '?' + parseData(data);
     }
   } else {
     params = JSON.stringify(data);
-    //POST方法设置请求头
+    // set header for POST method
     this.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   }
-  //建立连接
+  // 1. open connection
   this.open(url, method, async);
-  //发送请求及其数据
+  // 2. send request and data
   this.send(params);
-  //监听XMLHttpRequest对象的状态
+  // 3. listen the status of XMLHttpRequest Object
   this.onreadystatechange = function() {
-    //当请求完成，且状态为200 OK时，接收数据并处理
+    // 4. when request is completed and the status equals 200, handle reponse data
     if (this.readyState == 4 && this.status == 200) {
       fn(this.responseText);
     }
   };
-  /*parse data
-   ** data 可能为string或object
+  /* parse data
+   ** string/Object : data
    */
   function parseData(data) {
     if (data === undefined || data === null) {
@@ -80,40 +84,40 @@ XMLHttp.prototype.send = function(url, method, async, data, fn) {
     return str;
   }
 };
-//DOM的ready实现，类似jQuery
+
+// likes jQuery, when DOM is ready
 function domReady(fn) {
-  //现代浏览器
+  // latest browsers
   if (document.addEventListener) {
     document.addEventListener('DOMContentLoaded', fn, false);
   } else {
     IEContentLoaded(fn);
   }
-  //IE模拟DOMContentLoaded
+  // IE imutates DOMContentLoaded
   function IEContentLoaded(fn) {
     var d = document,
       done = false;
-    //执行一次用户回调函数init()
+    // when doned execute next 
     function init() {
       if (!done) {
         done = true;
         fn();
       }
     }
-    //立即执行hack
+    // execute hack immediately
     (function() {
       try {
         d.documentElement.doScroll('left');
       } catch (e) {
-        //延迟再试一次
+        // delay to try again
         setTimeout(arguments.callee, 50);
         return;
       }
-      //直到没有错误
       init();
     })();
-    //监听document的加载状态
+    // listen loading status of document
     d.onreadystatechange = function() {
-      //如果用户是在domReady之后绑定的函数，就立马执行
+      // if the function is bind after domReady, execute it immediately
       if (d.readyState == 'complete') {
         d.onreadystatechange = null;
         init();
