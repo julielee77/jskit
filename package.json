@@ -1,0 +1,25 @@
+{
+  "name": "utils",
+  "version": "1.0.0",
+  "description": "js functions, css for common styles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julielee77/utils.git"
+  },
+  "author": "JulieLee77",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julielee77/utils/issues"
+  },
+  "homepage": "https://github.com/julielee77/utils#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "jest": "^25.1.0",
+    "jest-babel": "^1.0.1"
+  }
+}
