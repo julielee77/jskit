@@ -1,8 +1,7 @@
 /**
  * @file sort functions
- * @author lihaizhu
- */
-/**
+ * @author Julie
+ *
  * sorting algorithm
  * 1. bubble sorting
  * 2. insertion sorting
@@ -31,7 +30,6 @@ export function bubbleSort(ary) {
     return ary;
 }
 
-//insert sorting
 /**
  * insert sorting n*n
  *
@@ -52,13 +50,18 @@ export function insertSort(ary) {
     }
     return ary;
 }
-//random sorting
-export function shuffle(ary, n) {
-    var len = ary.length,
-        num = n ? Math.min(n, len) : len,
-        arr = ary.slice(0);
-    arr.sort(function(a, b) {
-        return Math.random() - 0.5;
-    });
-    return arr.slice(0, num);
+
+/**
+ * random sorting TODO:验证原理
+ *
+ * @param {Array} ary
+ * @param {number} n
+ * @returns {Array}
+ */
+export function shuffleSort(ary, n) {
+    const len = ary.length;
+    const num = n ? Math.min(n, len) : len;
+    const newAry = ary.slice(0);
+    newAry.sort(() => Math.random() - 0.5);
+    return newAry.slice(0, num);
 }

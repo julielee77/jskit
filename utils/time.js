@@ -3,7 +3,7 @@
  * @param {number|string|Date} time
  * @param {string} format default:yyyy-MM-dd HH:mm:ss
  *  y-year M-month d-date h-hours m-minutes s-seconds q-quarter S-milliseconds E-week
- * @returns string
+ * @returns {string}
  */
 export function formatTime(time, format = 'yyyy-MM-dd HH:mm:ss') {
     let curDate = time;
