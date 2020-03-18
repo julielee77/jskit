@@ -2,4 +2,5 @@
 npm-debug.log
 .DS_Store
 ._.DS_Store
+package-lock.json
 
