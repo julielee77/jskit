@@ -1,5 +1,5 @@
 import {formatTime} from '../utils/time';
-import {getType, isType} from '../utils/type';
+import {getType, isType, isArrayFamiliar} from '../utils/type';
 
 // time
 describe('formatTime function test', () => {
@@ -25,6 +25,9 @@ describe('type related function test', () => {
     });
     it('should isType [], array be true', () => {
         expect(isType([], 'array')).toBe(true);
+    });
+    it('should isArrayFamiliar be true', () => {
+        isArrayFamiliar([3, false, '', null], [null, 2, true, 'hello']);
     });
 });
 
