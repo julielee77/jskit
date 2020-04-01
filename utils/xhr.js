@@ -1,6 +1,6 @@
 /**
  * @file ajax complemented by native javascript
- * @author lihaizhu
+ * @author Julie
  */
 
 const XMLHttp = () => {

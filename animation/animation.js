@@ -1,6 +1,6 @@
 /**
  * @file animation
- * @author lihaizhu
+ * @author Julie
  */
 
 /**
@@ -23,7 +23,7 @@ function getStyle(ele, attr) {
 }
 /**
  * js animation 类似于jQuery的 animation
- * 
+ *
  * @param ele--- DOMElement
  * @param json -- 动画属性数据，如{"width":"300px"}
  * @param fn -- callback function
